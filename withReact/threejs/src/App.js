@@ -6,6 +6,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 function App() {
   const gui = new dat.GUI();
   const mount = useRef();
+  const path =
+    'https://raw.githubusercontent.com/pkiop/threejs/master/withReact/threejs/src/deskmat.gltf';
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -19,7 +21,7 @@ function App() {
     const loader = new GLTFLoader();
     console.log('load start');
     loader.load(
-      './src/model/deskmat.gltf',
+      path,
       (gltf) => {
         console.log('load complete');
         scene.add(gltf.scene);
@@ -28,8 +30,8 @@ function App() {
         console.log('err : ', err);
       }
     );
-    camera.position.x = -3;
-    camera.position.y = -3;
+    camera.position.x = -5;
+    camera.position.y = -5;
     camera.position.z = 5;
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     const renderer = new THREE.WebGLRenderer();
@@ -48,13 +50,13 @@ function App() {
 
     const cube = new THREE.Mesh(geometry, material);
     cube.cursor = 'pointer';
-    scene.add(cube);
+    // scene.add(cube);
 
     const whiteLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 4);
     // light.position.x = 0;
     // light.position.x = 0;
     // light.position.x = 0;
-    whiteLight.position.set(1, 1, 1); // same
+    whiteLight.position.set(10, 10, 10); // same
     scene.add(whiteLight);
     gui.add(whiteLight.position, 'y');
     // const blackLight = new THREE.HemisphereLight(0x00ff00, 0x00ff00, 9);
@@ -72,7 +74,7 @@ function App() {
     // cube.rotation.x = 2.2;
     // cube.rotation.z = 1.0;
     // cube.rotation.y = 3.5;
-    cube.position.set(0, 0, 0);
+    // cube.position.set(0, 0, 0);
 
     const animate = function () {
       requestAnimationFrame(animate);
