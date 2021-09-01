@@ -6,8 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 function App() {
   const gui = new dat.GUI();
   const mount = useRef();
-  const path =
-    'https://raw.githubusercontent.com/pkiop/threejs/master/withReact/threejs/src/deskmat.gltf';
+  const path = 'http://localhost:3030/deskma123t.glb';
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -24,6 +23,7 @@ function App() {
       path,
       (gltf) => {
         console.log('load complete');
+        console.log('gltf : ', gltf);
         scene.add(gltf.scene);
       },
       (err) => {
