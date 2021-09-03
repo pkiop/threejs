@@ -135,20 +135,18 @@ function App() {
 
   const onClickHandler = () => {
     if (mesh1) {
-      console.log('1 : ', mesh1.current);
       const cube = mesh1.current;
       cube.material.color.setHex(0x0f0f0f);
     }
     if (mesh2) {
-      console.log('2 : ', mesh2.current);
+      const cube = mesh2.current;
+      cube.material.color.setHex(0xf0f0f0);
     }
   };
 
   const viewOnTop = () => {
     const camera = cameraRef.current;
-    console.log('click');
     if (camera) {
-      console.log('do');
       const coords = {
         x: camera.position.x,
         y: camera.position.y,
